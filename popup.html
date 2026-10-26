@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Joinly</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <button id="backBtn" class="back-btn" aria-label="Back" hidden>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h1 id="title" class="brand-lockup"><img src="icons/joinly-mark.svg" alt="" />Joinly</h1>
+      <div class="topbar-actions">
+        <button id="themeBtn" class="theme-btn" aria-label="Change theme" title="Change theme">
+          <span></span><span></span><span></span>
+        </button>
+        <button id="editBtn" class="edit-btn" aria-label="Manage custom sites" title="Manage custom sites">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 6.5l4 4M4 20l4.6-1 9.8-9.8a2.8 2.8 0 0 0-4-4L4.6 15 4 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="platformScreen" class="screen">
+        <p class="label">Choose a platform</p>
+        <div class="grid" id="platformGrid"></div>
+      </section>
+
+      <section id="codeScreen" class="screen" hidden>
+        <div class="platform-banner" id="platformBanner">
+          <img id="bannerLogo" class="banner-logo" alt="" />
+        </div>
+        <p class="label" id="codeLabel">Enter game code</p>
+        <form id="codeForm">
+          <input id="codeInput" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Code" />
+          <button type="submit" id="joinBtn" class="primary-btn">Join</button>
+        </form>
+      </section>
+
+      <section id="addScreen" class="screen" hidden>
+        <p class="label">Add your own site</p>
+        <form id="addForm">
+          <input id="addName" type="text" autocomplete="off" placeholder="Name (e.g. Gimkit)" />
+          <input id="addUrl" type="text" autocomplete="off" placeholder="Join link, use :code: for the code" />
+          <input id="addLogo" type="url" autocomplete="off" placeholder="Logo URL (optional)" />
+          <p class="hint">Example: https://gimkit.com/join?gc=:code:</p>
+          <p class="hint">Add a logo URL to give your custom button its own look.</p>
+          <button type="submit" class="primary-btn">Save site</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
