@@ -1,19 +1,74 @@
 # Joinly
 
-Minimal Chrome extension: pick a platform, type the code, land straight in the game in a new tab.
+Join your favorite quiz games faster.
 
-Platforms: Kahoot!, Blooket, Wayground (formerly Quizizz), ClassPoint, Classkick.
+Joinly keeps your most used game platforms in one place: choose a platform, enter your game code, and join.
 
-## Install (unpacked, for testing)
-1. Open `chrome://extensions`
-2. Turn on **Developer mode** (top right)
-3. Click **Load unpacked**, select this folder
-4. Pin the extension and click it
+## Supported platforms
 
-## How joining works
-- **Kahoot, Blooket, Wayground** support a code directly in the URL, so the tab opens already pointed at your game (`kahoot.it/?pin=`, `play.blooket.com/play?id=`, `wayground.com/join?gc=`). You still pick a nickname on their page — that's required by the platforms themselves and can't be skipped.
-- **ClassPoint and Classkick** don't publish a join-by-URL format, so for those two a small content script opens their join page and types the code into the class-code box for you automatically.
+- Kahoot!
+- Blooket
+- Wayground
+- ClassPoint
+- Classkick
 
-## Notes
-- These are third-party sites; if they change their page layout, the auto-fill for ClassPoint/Classkick may need a selector tweak in `content/classpoint.js` or `content/classkick.js`.
-- No data is collected or stored — the code you type is only used to build the URL / fill the field.
+You can also add any other site that uses a game or room code.
+
+## Joining a game
+
+1. Open Joinly from the Chrome toolbar.
+2. Choose a platform.
+3. Enter the game code.
+4. Select **Join**.
+
+That’s it, Joinly opens the game for you.
+
+## Add your own site
+
+Want to add a platform that is not already included?
+
+1. Open Joinly and select **Add site**.
+2. Enter a name for the site.
+3. Paste its join link.
+4. Replace the place where the game code belongs with `:code:`.
+5. Optionally paste a direct image link for the platform’s logo.
+6. Select **Save site**.
+
+Example join link:
+
+```text
+https://example.com/join?code=:code:
+```
+
+Your new site will appear alongside the built-in platforms.
+
+## Remove a custom site
+
+1. Select the pencil icon in the top-right corner.
+2. Select the **×** on a custom site.
+3. Select the pencil again when you are finished.
+
+Built-in platforms stay in place; only sites you add can be removed.
+
+## Change the theme
+
+Select the color-switcher icon in the top-right corner to cycle through Joinly’s themes:
+
+- Aurora
+- Midnight
+- Sunrise
+
+Your chosen theme is remembered.
+
+## Install locally
+
+1. Download or clone this repository.
+2. Open `chrome://extensions` in Google Chrome.
+3. Turn on **Developer mode**.
+4. Select **Load unpacked**.
+5. Choose this project folder.
+6. Pin Joinly from Chrome’s Extensions menu for quick access.
+
+## Feedback
+
+Have a platform you would like to see included? Open an issue or send a suggestion.
